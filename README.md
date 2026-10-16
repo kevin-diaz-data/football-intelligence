@@ -1,31 +1,28 @@
 Markdown
 # ⚽ Smart-Ops Football Market Analytics: Ecosistema Analítico de Fichajes y Finanzas Deportivas
 
-Este repositorio contiene un ecosistema analítico de Business Intelligence (BI) de extremo a extremo, diseñado para auditar el mercado de transferencias de las **5 grandes ligas europeas (2020-2025)**, evaluar la inflación de precios, analizar la eficiencia financiera de clubes y ligas, y optimizar la toma de decisiones en la compra/venta de jugadores.
+Este repositorio contiene un ecosistema analítico de Business Intelligence (BI) y automatización de datos de extremo a extremo estructurado en dos módulos complementarios:
 
-El proyecto se ha desarrollado bajo una arquitectura robusta, utilizando **PostgreSQL** para la ingesta, exploración y calidad de datos inicial (SQL QA), y **Power BI** (conectado a la fuente CSV exportada) como plataforma de modelado, analítica avanzada (DAX) y visualización interactiva de estándar corporativo (Big 4).
+1. **Módulo de Fichajes y Finanzas (2020-2025):** Auditoría del mercado de transferencias de las 5 grandes ligas europeas, evaluación de la inflación de precios, análisis de la eficiencia financiera de clubes/ligas y optimización en la toma de decisiones. Desarrollado mediante una arquitectura robusta con **PostgreSQL** (ingesta, exploración y calidad de datos SQL QA), **Power BI** (modelado avanzado en DAX) y su réplica integral en **Tableau Desktop/Public** (expresiones LOD).
+2. 
+3. **Módulo de Automatización y EDA (Python Core):** Pipeline analítico avanzado desarrollado en **Python Puro** para el procesamiento automatizado de partidos, jornadas, estadísticas de rendimiento (goles, tarjetas, faltas) y clasificaciones de La Liga (Temporada 2025/2026), orientado a la generación de contenidos analíticos activos.
 
 ---
 
 ## 📌 Contexto, Flujo General y Objetivos Analíticos
 
-### Flujo General de Arquitectura
-```text
-[Dataset Único (Raw Data 2020-2025)]
-  └─► [PostgreSQL Database (Auditoría SQL, DDL, Constraints & QA)]
-        └─► [Archivo CSV Exportado (Fuente para Power BI)]
-              └─► [Power Query ETL (Tratamiento & Deduplicación de Transacciones In/Out)]
-                    └─► [Power BI Data Model (Estructura de 3 Tablas: Raw, Fact_Transfers, _Medidas)]
-                          └─► [Interactivity Architecture & Custom Tooltips UX]
-Objetivos Analíticos Principales
-Evaluar la inflación en los precios del mercado y el Net Spend por liga y club dentro del periodo 2020-2025.
+### Flujo General de Arquitectura y Automatización
+[Dataset de Fichajes Raw (2020-2025)] ──► [PostgreSQL Database (Auditoría SQL, DDL, Constraints & QA)] ──► [CSV Exportado] ──► [Power Query ETL] ──► [Power BI & Tableau Data Model (DAX / LOD)]
+                                                                                                                                                                          
+[Dataset de Partidos LaLiga 25/26 (SP1.csv)] ──► [Python Core Automation (Diccionarios, EDA, Goles & Estadísticas de Jornada)] ──► [Generación Automática de Posts y Rankings para Redes / Carruseles]
 
-Analizar la eficiencia financiera en la compra/venta de jugadores según su Market Value vs. Transfer Fee.
+### Objetivos Analíticos Principales
+- **Evaluar la inflación** en los precios del mercado y el *Net Spend* por liga y club dentro del periodo 2020-2025.
+- **Analizar la eficiencia financiera** en la compra/venta de jugadores según su *Market Value* vs. *Transfer Fee*.
+- **Monitorizar la evolución** de cedidos (*Loans*) frente a traspasos permanentes (*Permanent Transfers*).
+- **Automatizar el procesamiento de datos deportivos** jornada a jornada mediante scripts de Python Core para la extracción de métricas de rendimiento (goles, tarjetas, faltas y clasificaciones).
+- **Facilitar una exploración interactiva detallada** a nivel de jugador, club, liga y nacionalidad en entornos BI corporativos (Power BI y Tableau).
 
-Monitorizar la evolución de cedidos (Loans) frente a traspasos permanentes (Permanent Transfers).
-
-Facilitar una exploración interactiva detallada a nivel de jugador, club, liga y nacionalidad.
-```
 
 # 🔍 1. Auditoría de Calidad y ETL (PostgreSQL & Power Query)
 ## A. Capa de Base de Datos y Auditoría (PostgreSQL)
