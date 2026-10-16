@@ -232,7 +232,18 @@ Con el objetivo de garantizar una arquitectura multiplataforma y validar la agil
 
 **Diseño e Interacciones:** Reconstrucción de las 5 vistas analíticas (Executive Summary, Club Analysis, Player Analysis, Transfer Intelligence y Transfer Explorer) adaptando las acciones de filtro, navegación UX y tooltips a la suite de Tableau.
 
-# 🚀 6. Estado Actual y Próximos Pasos
+# 🐍 6. Análisis Exploratorio de Datos (EDA) y Automatización en Python Core
+Desarrollo de scripts analíticos avanzados basados en **Python Puro (Core)** para procesar y validar datasets de partidos jornada a jornada (aplicado al análisis detallado de competiciones como La Liga):
+
+**Carga e Ingesta Estructurada:** Lectura de archivos CSV mediante `csv.DictReader` y control estricto de tipos de datos y fechas con `datetime`.
+
+**Agregación por Diccionarios y Listas:** Construcción de diccionarios anidados para el cálculo automatizado de partidos jugados, victorias, empates, derrotas, goles a favor/contra, diferencia de goles y puntos por equipo.
+
+**Validación de Integridad Numérica cruzada:** Comprobación matemática de que la suma total de partidos, puntos y goles coincide exactamente con los registros oficiales de la competición.
+
+**Generación Dinámica de Rankings:** Ordenamiento mediante funciones `lambda` y `sorted` para la extracción de tops y clasificaciones detalladas.
+
+# 🚀 7. Estado Actual y Próximos Pasos
 **[x] Fase 1:** Configuración de PostgreSQL, creación de DDL, ingesta y auditoría de datos mediante consultas SQL (SQL QA).
 
 **[x] Fase 2:** Exportación a CSV, conexión de Power BI y transformación en Power Query (eliminación de duplicados In/Out).
@@ -243,6 +254,6 @@ Con el objetivo de garantizar una arquitectura multiplataforma y validar la agil
 
 **[x] Fase 5:** Migración y réplica del ecosistema a Tableau Desktop / Tableau Public (expresiones LOD, dashboards equivalentes y publicación).
 
-**[ ] Fase 6 (Próximo Hito)**: Análisis Exploratorio de Datos Avanzado (EDA) y Automatización en Python (notebooks analíticos para predicción de valor de mercado y detección de anomalías en fichajes).
+**[x] Fase 6:** Análisis Exploratorio de Datos (EDA) y procesamiento automatizado de partidos mediante Python Core.
 
 Desarrollado como proyecto avanzado de Business Intelligence, Data Engineering y Visual Analytics.
